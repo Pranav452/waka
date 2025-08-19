@@ -1,0 +1,1 @@
+this project comprises of too components 1 is an basic rag other are some endpoints based on the question both are not related to each other whatsoever enpoints might be right or wrong but it can be seen in a colourful manner in the docs section there is no concept of db schema or relationship execpt i ise FAISS for storing the vector embeddings 

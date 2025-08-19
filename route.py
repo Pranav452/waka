@@ -1,7 +1,7 @@
 from typing import List, Optional,Union
 from fastapi import FastAPI, HTTPException, Depends, Body, status
 from pydantic import BaseModel, EmailStr, Field
-from uuid import uuid4, UUID
+from uuid import uuid4, UUID, uuid5
 
 app = FastAPI()
 
@@ -11,7 +11,6 @@ workouts_db = {}
 exercises_db = {}
 progress_db = {}
 nutrition_db = {}
-chat_history_db = {}
 
 
 class UserRegister(BaseModel):
@@ -52,32 +51,8 @@ class Exercise(BaseModel):
     instructions: str
     target_muscles: List[str]
 
-class ProgressEntry(BaseModel):
-    id: UUID
-    user_id: UUID
-    workout_id: UUID
-    date: str
-    exercises_completed: List[UUID]
-    sets: int
-    reps: int
-    weights: float
-    duration: int
-    calories_burned: float
 
-class NutritionEntry(BaseModel):
-    id: UUID
-    user_id: UUID
-    date: str
-    meals: List[str]
-    calories: float
-    macronutrients: dict
 
-class ChatRequest(BaseModel):
-    user_id: UUID
-    question: str
-
-class ChatResponse(BaseModel):
-    response: str
 
 @app.get("/")
 def read_root():
@@ -117,4 +92,18 @@ def create_workout(workout: WorkoutPlan):
     workout_data['id'] = workout_id
     workouts_db[workout_id] = workout_data
     return workout_data
+
+@app.get("/workouts/{workout_id}", response_model=WorkoutPlan)
+def get_workout(workout_id: UUID):
+    workout = workouts_db.get(workout_id)
+    if not workout:
+        raise HTTPException(status_code=404, detail="Workout not found")
+    return workout
+
+@app.put("/workouts/{workout_id}", response_model=WorkoutPlan)
+def update_workout(workout_id: UUID, workout: WorkoutPlan):
+    if workout_id not in workouts_db:
+        raise HTTPException(status_code=404, detail="Workout not found")
+    workouts_db[workout_id].update
+
 
