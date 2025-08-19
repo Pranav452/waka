@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+env.bak/
+# VSCode
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.*
+
+# macOS
+.DS_Store
+
+# System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Test and coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# FAISS index files
+*.faiss
+*.index
+
+# CSV/TSV data files (if generated)
+*.csv
+*.tsv
+
+# Local settings
+*.local
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+
+# Editor directories and files
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Node (if any JS/TS used)
+node_modules/
+
+# Misc
+*.tmp
+*.temp
+# End of Selection
