@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List, Optional,Union
 from fastapi import FastAPI, HTTPException, Depends, Body, status
 from pydantic import BaseModel, EmailStr, Field
 from uuid import uuid4, UUID
@@ -79,7 +79,10 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     response: str
 
-
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+    
 @app.post("/auth/register")
 def register(user: UserRegister):
     for u in users_db.values():

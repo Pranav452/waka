@@ -20,7 +20,7 @@ if not os.getenv("GOOGLE_API_KEY"):
     raise ValueError("GOOGLE_API_KEY not found in .env file")
 
 
-loader = TextLoader("knowledge.csv")
+loader = TextLoader("knowledge.txt")
 documents = loader.load()
 text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
 docs = text_splitter.split_documents(documents)

@@ -1,0 +1,63 @@
+**Dataset: Alex - User Profile**
+
+**I. User Profile Information:**
+
+*   **Name:** Alex
+*   **Age:** 30
+*   **Gender:** Male
+*   **Fitness Level:** Beginner
+*   **Goals:** Lose weight (10 lbs), increase overall fitness, build some muscle tone.
+*   **Dietary Preferences:**  Omnivore, prefers lean protein and vegetables, dislikes excessive sugar.
+*   **Activity Level (Outside of workouts):** Sedentary (desk job)
+
+**II. Workout Data:**
+
+| Date       | Workout Type      | Duration (Minutes) | Sets | Reps | Notes                               |
+|------------|--------------------|--------------------|------|------|-------------------------------------|
+| 2024-10-26 | Full Body Beginner | 30                 | 3    | 10   | Warm-up: 5 mins light cardio, focus on form |
+| 2024-10-27 | Cardio             | 45                 | N/A  | N/A  | Brisk walking, moderate intensity     |
+| 2024-10-28 | Strength Training   | 45                 | 3    | 8    | Focus on core strength               |
+| 2024-10-29 | Active Recovery     | 30                 | N/A  | N/A  | Stretching, foam rolling            |
+| 2024-10-30 | Full Body Beginner | 30                 | 3    | 10   | Similar to Oct 26 - Focus on form    |
+
+
+
+**III. Nutrition Data:**
+
+| Date       | Meal        | Food Items                | Calories | Protein (g) | Carbs (g) | Fat (g) | Notes                       |
+|------------|-------------|---------------------------|----------|-------------|-----------|---------|----------------------------|
+| 2024-10-26 | Breakfast   | Oatmeal (1/2 cup) + Berries | 300      | 10          | 40        | 5        |                          |
+| 2024-10-26 | Lunch       | Chicken Breast (4oz) + Salad | 400      | 30          | 20        | 10       |                          |
+| 2024-10-26 | Dinner      | Salmon (4oz) + Roasted Veggies| 500      | 35          | 30        | 20       |                          |
+| 2024-10-27 | Breakfast   | Greek Yogurt + Fruit        | 250      | 20          | 25        | 8        |                          |
+| 2024-10-27 | Lunch       | Turkey Sandwich on Whole Wheat | 450      | 25          | 40        | 15       |                          |
+| 2024-10-27 | Dinner      | Chicken Stir-fry            | 550      | 30          | 40        | 15       |                          |
+| 2024-10-28 | Breakfast   | Scrambled Eggs + Toast       | 320      | 22          | 20        | 12        |                          |
+| 2024-10-28 | Lunch       | Lentil Soup                | 480      | 18          | 50        | 8        |                          |
+| 2024-10-28 | Dinner      | Baked Chicken + Brown Rice   | 520      | 32          | 45        | 18       |                          |
+| 2024-10-29 | Breakfast   | Oatmeal + Banana           | 280      | 7           | 40        | 6        |                          |
+| 2024-10-29 | Lunch       | Salad with Grilled Chicken    | 420      | 30          | 35        | 12       |                          |
+| 2024-10-29 | Dinner      | Shrimp with Vegetables       | 500      | 38          | 32        | 16       |                          |
+
+
+
+**IV. Progress Tracking:**
+
+*   **Weight:**
+    *   2024-10-26: 175 lbs
+    *   2024-10-27: 174.8 lbs
+    *   2024-10-28: 175 lbs
+    *   2024-10-29: 174.5 lbs
+*   **Measurements (Chest, Waist, Arms):** (Add these for a more complete picture -  provide baseline values.)
+*   **Mood (Scale of 1-10):**  Record daily mood levels.
+
+
+
+**Notes for Implementation:**
+
+*   **RAG:**  You'll need to create a knowledge base (documents, FAQs, workout descriptions, nutritional information) and a retrieval mechanism (like a vector 
+database) that can find relevant information based on Alex's queries.  This is the core of the RAG system.
+*   **Chat Interface:**  This dataset is the input for a simple chatbot. The chatbot will use the RAG system to answer user questions related to Alex's 
+workouts, nutrition, and progress.
+*   **Scalability:**  This is a basic example.  To make this system truly useful, you'll need to add more data points, expand the knowledge base, and implement 
+more advanced features (e.g., personalized recommendations, dynamic workout adjustments).
