@@ -1,17 +1,13 @@
-from typing import List, Optional,Union
-from fastapi import FastAPI, HTTPException, Depends, Body, status
-from pydantic import BaseModel, EmailStr, Field
-from uuid import uuid4, UUID, uuid5
+from typing import List, Optional
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, EmailStr
+from uuid import uuid4, UUID
 
 app = FastAPI()
 
 
 users_db = {}
 workouts_db = {}
-exercises_db = {}
-progress_db = {}
-nutrition_db = {}
-
 
 class UserRegister(BaseModel):
     username: str
@@ -41,18 +37,6 @@ class WorkoutPlan(BaseModel):
     duration: int
     target_muscle_groups: List[str]
     exercises_list: List[UUID]
-
-class Exercise(BaseModel):
-    id: UUID
-    exercise_name: str
-    category: str
-    equipment_needed: Optional[str] = None
-    difficulty: str
-    instructions: str
-    target_muscles: List[str]
-
-
-
 
 @app.get("/")
 def read_root():
@@ -107,3 +91,9 @@ def update_workout(workout_id: UUID, workout: WorkoutPlan):
     workouts_db[workout_id].update
 
 
+@app.delete("/workouts/{workout_id}")
+def delete_workout(workout_id: UUID):
+    if workout_id not in workouts_db:
+        raise HTTPException(status_code=404, detail="Workout not found")
+    del workouts_db[workout_id]
+    return {"detail": "Workout deleted"}
