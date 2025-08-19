@@ -110,18 +110,11 @@ def login(credentials: UserLogin):
             return {"id": user['id'], "username": user['username'], "email": user['email']}
     raise HTTPException(status_code=401, detail="Invalid credentials")
 
-@app.get("/auth/user/{user_id}", response_model=UserProfile)
-def get_user_profile(user_id: UUID):
-    user = users_db.get(user_id)
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
-    return user
-
-@app.put("/auth/user/{user_id}", response_model=UserProfile)
-def update_user_profile(user_id: UUID, profile: UserProfile):
-    if user_id not in users_db:
-        raise HTTPException(status_code=404, detail="User not found")
-    users_db[user_id].update(profile.dict(exclude_unset=True))
-    return users_db[user_id]
-
+@app.post("/workouts", response_model=WorkoutPlan)
+def create_workout(workout: WorkoutPlan):
+    workout_id = uuid4()
+    workout_data = workout.dict()
+    workout_data['id'] = workout_id
+    workouts_db[workout_id] = workout_data
+    return workout_data
 
